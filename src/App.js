@@ -11,7 +11,7 @@ function App() {
           Button as link
         </Button>
         <Button as="a" variant="success">
-          Button as link
+          Button as link change
         </Button>
       </Stack>
     </div>
