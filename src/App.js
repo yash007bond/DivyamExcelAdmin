@@ -6,6 +6,8 @@ import SignInPage from "./pages/SignInPage";
 import DashboardPage from "./pages/DashboardPage";
 import Public from "./components/util/Public";
 import Protected from "./components/util/Protected";
+import MainNavbar from "./components/ui/MainNavbar";
+import StaffPage from "./pages/StaffPage";
 
 function App() {
   return (
@@ -21,13 +23,16 @@ function App() {
             }
           />
           <Route
-            path="dashboard"
+            path="admin"
             element={
               <Protected>
-                <DashboardPage />
+                <MainNavbar />
               </Protected>
             }
-          />
+          >
+            <Route path="dashboard" element={<DashboardPage />} />
+            <Route path="staff" element={<StaffPage />} />
+          </Route>
         </Routes>
       </ChakraProvider>
     </AuthContextProvider>

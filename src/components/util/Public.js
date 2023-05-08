@@ -6,7 +6,7 @@ const Public = ({ children }) => {
   const { user } = UserAuth();
 
   if (user) {
-    return <Navigate to="/dashboard" />;
+    return <Navigate to="/admin/dashboard" />;
   }
 
   return children;
