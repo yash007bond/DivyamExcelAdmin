@@ -1,20 +1,13 @@
-// import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import { Button, Stack } from "react-bootstrap";
+import { Routes, Route } from "react-router-dom";
+import SignInPage from "./pages/SignInPage";
+import DashboardPage from "./pages/DashboardPage";
 
 function App() {
   return (
-    <div>
-      <h1>This is a header</h1>
-      <Stack direction="horizontal" gap={2}>
-        <Button as="a" variant="primary">
-          Button as link
-        </Button>
-        <Button as="a" variant="success">
-          Button as link change
-        </Button>
-      </Stack>
-    </div>
+    <Routes>
+      <Route path="/" element={<SignInPage />} />
+      <Route path="dashboard" element={<DashboardPage />} />
+    </Routes>
   );
 }
 
