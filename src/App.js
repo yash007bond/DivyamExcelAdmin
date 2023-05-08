@@ -8,6 +8,7 @@ import Public from "./components/util/Public";
 import Protected from "./components/util/Protected";
 import MainNavbar from "./components/ui/MainNavbar";
 import StaffPage from "./pages/StaffPage";
+import NoMatch from "./pages/NoMatch";
 
 function App() {
   return (
@@ -30,9 +31,12 @@ function App() {
               </Protected>
             }
           >
+            <Route index element={<DashboardPage />} />
             <Route path="dashboard" element={<DashboardPage />} />
             <Route path="staff" element={<StaffPage />} />
+            <Route path="*" element={<NoMatch />} />
           </Route>
+          <Route path="*" element={<NoMatch />} />
         </Routes>
       </ChakraProvider>
     </AuthContextProvider>
