@@ -41,9 +41,18 @@ const RootLayout = () => {
     },
   };
 
+  const bodyStyles = {
+    bg: GlobalStyles.colors.gray50,
+  };
+
+  const contentStyles = {
+    mt: "32px",
+    bg: "white",
+  };
+
   return (
-    <Box w="100%" px="30px">
-      <Grid templateColumns="repeat(9, 1fr)" bg="gray.50">
+    <Box w="100%" px="30px" sx={bodyStyles}>
+      <Grid templateColumns="repeat(9, 1fr)">
         <GridItem colSpan="2" height="100vh" pt="30px" pr="30px" pb="30px">
           <Box sx={mainNavStyles}>
             <Heading as="h1" color="white" textAlign="center" pb="32px">
@@ -54,7 +63,9 @@ const RootLayout = () => {
         </GridItem>
         <GridItem colSpan="7">
           <MainHeader />
-          <Outlet />
+          <Box sx={contentStyles}>
+            <Outlet />
+          </Box>
         </GridItem>
       </Grid>
     </Box>
