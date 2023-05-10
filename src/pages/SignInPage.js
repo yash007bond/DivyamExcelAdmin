@@ -9,9 +9,11 @@ import {
   AlertTitle,
   AlertDescription,
   Container,
+  Center,
 } from "@chakra-ui/react";
 
 import { UserAuth } from "../contexts/AuthContext";
+import { GlobalStyles } from "../constants/styles";
 
 const SignInPage = () => {
   const [email, setEmail] = useState("");
@@ -102,7 +104,7 @@ const SignInPage = () => {
 
     try {
       await signIn(email, password);
-      navigate("/dashboard", { replace: true });
+      navigate("/admin/dashboard", { replace: true });
     } catch (error) {
       setShowSignInErrorAlert(true);
       setPassword("");
@@ -116,7 +118,13 @@ const SignInPage = () => {
   };
 
   return (
-    <Container>
+    <Container
+      flexDirection="column"
+      h="100vh"
+      p="86"
+      bgColor={GlobalStyles.colors.purple800}
+      color={GlobalStyles.colors.gray500}
+    >
       {showSignInErrorAlert && (
         <Alert status="error">
           <AlertIcon />
@@ -125,15 +133,23 @@ const SignInPage = () => {
         </Alert>
       )}
       <form onSubmit={handleOnSubmit}>
-        <Text fontSize="sm">Email</Text>
+        <Text fontSize="18" mt="32px" mb="8px">
+          Email
+        </Text>
         <Input
+          size="lg"
+          variant="filled"
           onChange={handleEmailChange}
           onBlur={handleEmailBlur}
           isInvalid={showEmailError}
           errorBorderColor="red.400"
         />
-        <Text fontSize="sm">Password</Text>
+        <Text fontSize="18" mt="32px" mb="8px">
+          Password
+        </Text>
         <Input
+          size="lg"
+          variant="filled"
           type="password"
           value={password}
           onChange={handlePasswordChange}
@@ -141,9 +157,17 @@ const SignInPage = () => {
           isInvalid={showPasswordError}
           errorBorderColor="red.400"
         />
-        <Button colorScheme="blue" type="submit">
-          Button
-        </Button>
+        <Center w="100%">
+          <Button
+            bgColor="#EEEEEE"
+            type="submit"
+            color="#212529"
+            p="24px"
+            mt="32px"
+          >
+            SIGN IN
+          </Button>
+        </Center>
       </form>
     </Container>
   );

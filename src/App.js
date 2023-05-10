@@ -6,9 +6,10 @@ import SignInPage from "./pages/SignInPage";
 import DashboardPage from "./pages/DashboardPage";
 import Public from "./components/util/Public";
 import Protected from "./components/util/Protected";
-import MainNavbar from "./components/ui/MainNavbar";
-import StaffPage from "./pages/StaffPage";
 import NoMatch from "./pages/NoMatch";
+import RootLayout from "./components/ui/RootLayout";
+import UserManagementPage from "./pages/staff/UserManagementPage";
+import RoleManagementPage from "./pages/staff/RoleManagementPage";
 
 function App() {
   return (
@@ -27,13 +28,14 @@ function App() {
             path="admin"
             element={
               <Protected>
-                <MainNavbar />
+                <RootLayout />
               </Protected>
             }
           >
             <Route index element={<DashboardPage />} />
             <Route path="dashboard" element={<DashboardPage />} />
-            <Route path="staff" element={<StaffPage />} />
+            <Route path="userManagement" element={<UserManagementPage />} />
+            <Route path="roleManagement" element={<RoleManagementPage />} />
             <Route path="*" element={<NoMatch />} />
           </Route>
           <Route path="*" element={<NoMatch />} />
