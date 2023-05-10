@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Box, HStack, Text, Icon, Spacer } from "@chakra-ui/react";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 
@@ -18,8 +17,8 @@ const MainNavGroup = ({
   };
 
   return (
-    <Box width="100%" mb="8px" onClick={handleClick} cursor="pointer">
-      <HStack>
+    <Box width="100%" mb="8px">
+      <HStack onClick={handleClick} cursor="pointer">
         <Box w="32px" h="24px" mr="-4px">
           {icon && (
             <Icon
