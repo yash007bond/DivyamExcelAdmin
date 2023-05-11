@@ -32,7 +32,8 @@ const MainNavbar = () => {
         label="Staff"
         isActive={
           pathname === "/admin/userManagement" ||
-          pathname === "/admin/roleManagement"
+          pathname === "/admin/roleManagement" ||
+          pathname === "/admin/createRole"
         }
         expandItem={expandItem}
         isExpanded={expandedItemId === "staff"}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Input,
   Text,
@@ -28,8 +28,11 @@ const SignInPage = () => {
   const [showSignInErrorAlert, setShowSignInErrorAlert] = useState(false);
   const [signInErrorDescription, setSignInErrorDescription] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { signIn } = UserAuth();
+
+  const redirectPath = location.state?.path || "/admin/dashboard";
 
   useEffect(() => {
     if (validateEmail(email)) {
@@ -104,7 +107,7 @@ const SignInPage = () => {
 
     try {
       await signIn(email, password);
-      navigate("/admin/dashboard", { replace: true });
+      navigate(redirectPath, { replace: true });
     } catch (error) {
       setShowSignInErrorAlert(true);
       setPassword("");

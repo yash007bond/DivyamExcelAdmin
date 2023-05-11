@@ -10,6 +10,7 @@ import NoMatch from "./pages/NoMatch";
 import RootLayout from "./components/ui/RootLayout";
 import UserManagementPage from "./pages/staff/UserManagementPage";
 import RoleManagementPage from "./pages/staff/RoleManagementPage";
+import CreateRolePage from "./pages/staff/CreateRolePage";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="dashboard" element={<DashboardPage />} />
             <Route path="userManagement" element={<UserManagementPage />} />
             <Route path="roleManagement" element={<RoleManagementPage />} />
+            <Route path="createRole" element={<CreateRolePage />} />
             <Route path="*" element={<NoMatch />} />
           </Route>
           <Route path="*" element={<NoMatch />} />

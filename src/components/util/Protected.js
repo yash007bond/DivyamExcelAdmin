@@ -1,12 +1,13 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 import { UserAuth } from "../../contexts/AuthContext";
 
 const Protected = ({ children }) => {
-  const { user } = UserAuth();
+  const location = useLocation();
+  const auth = UserAuth();
 
-  if (!user) {
-    return <Navigate to="/" />;
+  if (!auth.user) {
+    return <Navigate to="/" state={{ path: location.pathname }} />;
   }
 
   return children;
