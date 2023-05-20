@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { MdHome, MdManageAccounts } from "react-icons/md";
+import { MdHome, MdManageAccounts, MdLocationPin } from "react-icons/md";
 
 import MainNavItem from "./MainNavItem";
 import MainNavGroup from "./MainNavGroup";
@@ -48,6 +48,30 @@ const MainNavbar = () => {
           itemLabel="Role Management"
           type="sub"
         />
+      </MainNavGroup>
+      <MainNavGroup
+        id="locations"
+        icon={MdLocationPin}
+        label="Locations"
+        isActive={
+          pathname === "/admin/states" ||
+          pathname === "/admin/metrocities" ||
+          pathname === "/admin/areas" ||
+          pathname === "/admin/districts" ||
+          pathname === "/admin/talukas"
+        }
+        expandItem={expandItem}
+        isExpanded={expandedItemId === "locations"}
+      >
+        <MainNavItem routeName="states" itemLabel="States" type="sub" />
+        <MainNavItem
+          routeName="metrocities"
+          itemLabel="Metrocities"
+          type="sub"
+        />
+        <MainNavItem routeName="areas" itemLabel="Areas" type="sub" />
+        <MainNavItem routeName="districts" itemLabel="Districts" type="sub" />
+        <MainNavItem routeName="talukas" itemLabel="Talukas" type="sub" />
       </MainNavGroup>
     </nav>
   );

@@ -48,6 +48,8 @@ const RootLayout = () => {
   const contentStyles = {
     mt: "32px",
     bg: "white",
+    py: "32px",
+    px: "5%",
   };
 
   return (

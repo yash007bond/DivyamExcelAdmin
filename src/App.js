@@ -11,6 +11,11 @@ import RootLayout from "./components/ui/RootLayout";
 import UserManagementPage from "./pages/staff/UserManagementPage";
 import RoleManagementPage from "./pages/staff/RoleManagementPage";
 import CreateRolePage from "./pages/staff/CreateRolePage";
+import StatesPage from "./pages/location/StatesPage";
+import DistrictsPage from "./pages/location/DistrictsPage";
+import MetrocitiesPage from "./pages/location/MetrocitiesPage";
+import AreasPage from "./pages/location/AreasPage";
+import TalukasPage from "./pages/location/TalukasPage";
 
 function App() {
   return (
@@ -38,6 +43,11 @@ function App() {
             <Route path="userManagement" element={<UserManagementPage />} />
             <Route path="roleManagement" element={<RoleManagementPage />} />
             <Route path="createRole" element={<CreateRolePage />} />
+            <Route path="states" element={<StatesPage />} />
+            <Route path="metrocities" element={<MetrocitiesPage />} />
+            <Route path="areas" element={<AreasPage />} />
+            <Route path="districts" element={<DistrictsPage />} />
+            <Route path="talukas" element={<TalukasPage />} />
             <Route path="*" element={<NoMatch />} />
           </Route>
           <Route path="*" element={<NoMatch />} />

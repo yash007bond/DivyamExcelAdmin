@@ -14,6 +14,7 @@ import {
 
 import { UserAuth } from "../contexts/AuthContext";
 import { GlobalStyles } from "../constants/styles";
+import { validateEmail } from "../components/helpers/validateEmail";
 
 const SignInPage = () => {
   const [email, setEmail] = useState("");
@@ -78,11 +79,6 @@ const SignInPage = () => {
     setEmail(event.target.value.trim());
   };
 
-  const validateEmail = (email) => {
-    const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return pattern.test(email);
-  };
-
   const handleEmailBlur = () => {
     setEmailTouched(true);
   };
@@ -129,10 +125,12 @@ const SignInPage = () => {
       color={GlobalStyles.colors.gray500}
     >
       {showSignInErrorAlert && (
-        <Alert status="error">
+        <Alert status="error" colorScheme="yellow">
           <AlertIcon />
-          <AlertTitle>Error!</AlertTitle>
-          <AlertDescription>{signInErrorDescription}</AlertDescription>
+          <AlertTitle color={GlobalStyles.colors.textGray}>Error!</AlertTitle>
+          <AlertDescription color={GlobalStyles.colors.textGray}>
+            {signInErrorDescription}
+          </AlertDescription>
         </Alert>
       )}
       <form onSubmit={handleOnSubmit}>
@@ -162,8 +160,8 @@ const SignInPage = () => {
         />
         <Center w="100%">
           <Button
-            bgColor="#EEEEEE"
             type="submit"
+            bgColor="#EEEEEE"
             color="#212529"
             p="24px"
             mt="32px"
